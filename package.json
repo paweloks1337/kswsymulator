@@ -1,0 +1,21 @@
+{
+  "name": "ksw-career-simulator",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm -w apps/web run dev",
+    "build": "npm -w apps/web run build",
+    "test": "npm -w packages/engine run test",
+    "dev:api": "npm -w apps/api run dev",
+    "db:migrate": "npm -w apps/api run db:migrate",
+    "typecheck": "npm -w packages/engine run typecheck && npm -w apps/api run typecheck && npm -w apps/web run typecheck",
+    "test:all": "npm test && npm -w apps/web run test:pwa",
+    "e2e": "node e2e/smoke.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.48.0"
+  }
+}
